@@ -1,0 +1,12 @@
+export const SERVICE_LIST = 'service_list';
+export const MODIFY_REGISTERING = 'modify_registering';
+export const MODIFY_SCHEDULING_SERVICE = 'modify_scheduling_service';
+export const MODIFY_SCHEDULING_DATE = 'modify_scheduling_data';
+export const REGISTERING_SCHEDULING = 'registring_scheduling';
+export const MODIFY_SCHEDULING_PROFESSIONAL_LIST = 'modify_scheduling_professional_list';
+export const MODIFY_SCHEDULING_PROFESSIONAL = 'modify_scheduling_professional';
+export const MODIFY_SCHEDULING_ADDRESS = 'modify_scheduling_address';
+export const MODIFY_SCHEDULING_NEIGHBORHOOD = 'modify_scheduling_neighborhood';
+export const MODIFY_SCHEDULING_ZIPCODE = 'modify_scheduling_zipcode';
+export const MODIFY_SCHEDULING_CITY = 'modify_scheduling_city';
+export const MODIFY_SCHEDULING_CITY_LIST = 'modify_scheduling_city_list';
