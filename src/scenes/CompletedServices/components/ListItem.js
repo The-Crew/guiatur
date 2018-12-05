@@ -16,8 +16,8 @@ export default ListItem = (props) => {
         <Icon
           name="star"
           size={40}
-          color={colors.yellow}
-          style={{ borderWidth: 2, borderColor: colors.yellow, borderRadius: 25, backgroundColor: '#ee7600', paddingTop: 2, paddingLeft: 2 }}
+          color={colors.star}
+          style={{ borderWidth: 2, borderColor: colors.borderstar, borderRadius: 25, backgroundColor: colors.bgstar, paddingTop: 2, paddingLeft: 2 }}
         />
       )
     } else if (props.item.evaluation > 0) {
@@ -25,8 +25,8 @@ export default ListItem = (props) => {
         <Icon
           name="star-half"
           size={40}
-          color={colors.yellow}
-          style={{ borderWidth: 2, borderColor: colors.yellow, borderRadius: 25, backgroundColor: '#ee7600', paddingTop: 2, paddingLeft: 2 }}
+          color={colors.star}
+          style={{ borderWidth: 2, borderColor: colors.borderstar, borderRadius: 25, backgroundColor: colors.bgstar, paddingTop: 2, paddingLeft: 2 }}
         />
       )
     }
@@ -41,7 +41,7 @@ export default ListItem = (props) => {
   }
 
   return (
-    <View style={{ height: 80, width: width-10, backgroundColor: '#fafafa', margin: 5, flexDirection: 'row' }}>
+    <View style={{ height: 80, width: width-10, backgroundColor: (props.index%2 == 0 ? '#fcfcfc' : '#f0f0f0'), margin: 5, flexDirection: 'row' }}>
       <View style={{ flex: 5 }}>
         <Text style={{ margin: 5, ...textStyles.default }}>Serviço: {props.item.description}</Text>
         <Text style={{ margin: 5, ...textStyles.default }}>Data agendada: {props.item.schedulingDate}</Text>

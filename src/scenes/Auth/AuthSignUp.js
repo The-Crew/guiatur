@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import DatePicker from 'react-native-datepicker'
 
-import { colors, styleActivityIndicator, textStyles } from '../../style';
+import { colors, styleActivityIndicator, textStyles, textInput } from '../../style';
 
 import {
   changeName,
@@ -76,7 +76,7 @@ class AuthSignUp extends Component {
       <ScrollView style={{ flex: 1, padding: 30, paddingBottom: 0, backgroundColor: colors.backgroundAuth }}>
         <View style={{ flex: 1, marginBottom: 10, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.backgroundAuth }}>
           <TextInput
-            style={{ width: 300, ...textStyles.default }}
+            style={{ width: 300, ...textInput.default, ...textStyles.default }}
             placeholder="Insira o seu nome"
             value={this.props.name}
             onChangeText={this.props.changeName}
@@ -127,31 +127,31 @@ class AuthSignUp extends Component {
             />
           </View>
           <TextInput
-            style={{ width: 300, ...textStyles.default }}
+            style={{ width: 300, ...textInput.default, ...textStyles.default }}
             placeholder="DDD"
             value={this.props.ddd}
             onChangeText={this.props.changeDdd}
           />
           <TextInput
-            style={{ width: 300, ...textStyles.default }}
+            style={{ width: 300, ...textInput.default, ...textStyles.default }}
             placeholder="Telefone"
             value={this.props.phone}
             onChangeText={this.props.changePhone}
           />
           <TextInput
-            style={{ width: 300, ...textStyles.default }}
+            style={{ width: 300, ...textInput.default, ...textStyles.default }}
             placeholder="Endereço"
             value={this.props.address}
             onChangeText={this.props.changeAddress}
           />
           <TextInput
-            style={{ width: 300, ...textStyles.default }}
+            style={{ width: 300, ...textInput.default, ...textStyles.default }}
             placeholder="Bairro"
             value={this.props.neighborhood}
             onChangeText={this.props.changeNeighborhood}
           />
           <TextInput
-            style={{ width: 300, ...textStyles.default }}
+            style={{ width: 300, ...textInput.default, ...textStyles.default }}
             placeholder="Cep"
             value={this.props.zipCode}
             onChangeText={this.props.changeZipCode}
@@ -161,27 +161,27 @@ class AuthSignUp extends Component {
             <RenderCities />
           </View>
           <TextInput
-            style={{ width: 300, ...textStyles.default }}
+            style={{ width: 300, ...textInput.default, ...textStyles.default }}
             placeholder="Insira o e-mail"
             keyboardType="email-address"
             value={this.props.email}
             onChangeText={this.props.changeEmail}
           />
           <TextInput
-            style={{ width: 300, ...textStyles.default }}
+            style={{ width: 300, ...textInput.default, ...textStyles.default }}
             placeholder="Insira o seu username"
             value={this.props.username}
             onChangeText={this.props.changeUsername}
           />
           <TextInput
-            style={{ width: 300, ...textStyles.default }}
+            style={{ width: 300, ...textInput.default, ...textStyles.default }}
             placeholder="Insira a senha"
             secureTextEntry
             value={this.props.password}
             onChangeText={this.props.changePassword}
           />
           <TextInput
-            style={{ width: 300, ...textStyles.default }}
+            style={{ width: 300, ...textInput.default, ...textStyles.default }}
             placeholder="Repita a senha"
             secureTextEntry
             value={this.props.repassword}

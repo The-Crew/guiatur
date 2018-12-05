@@ -33,8 +33,8 @@ class Scheduling extends Component {
     headerRight: <Logout />,
     tabBarIcon: ({ focused, tintColor }) => (
       focused
-        ? <Icon name="event" size={30} color={colors.button} />
-        : <Icon name="event" size={30} color={colors.dark}/>
+        ? <Icon name="event" size={30} color={colors.navFocused} />
+        : <Icon name="event" size={30} color={colors.navUnfocused}/>
     ),
   };
 
@@ -156,34 +156,6 @@ class Scheduling extends Component {
               }
             }}
             onDateChange={this.props.changeDate}
-          />
-          <TextInput
-            style={{ width: 300, ...textStyles.default }}
-            ref={(e) => this.address = e}
-            placeholder="Endereço"
-            returnKeyType="next"
-            value={this.props.address}
-            onChangeText={this.props.changeAddress}
-            onSubmitEditing={() => { this.neighborhood.focus() }}
-          />
-          <TextInput
-            style={{ width: 300, ...textStyles.default }}
-            ref={(e) => this.neighborhood = e}
-            placeholder="Bairro"
-            returnKeyType="next"
-            value={this.props.neighborhood}
-            onChangeText={this.props.changeNeighborhood}
-            onSubmitEditing={() => { this.zipCode.focus() }}
-          />
-          <TextInput
-            style={{ width: 300, ...textStyles.default }}
-            ref={(e) => this.zipCode = e}
-            placeholder="Cep"
-            returnKeyType="next"
-            keyboardType="numeric"
-            value={this.props.zipCode}
-            onChangeText={this.props.changeZipCode}
-            onSubmitEditing={false}
           />
           <View style={{ width: 300, flexDirection: 'row' }}>
             <Text style={{ marginVertical: 15, marginHorizontal: 10, ...textStyles.default }}>Cidade:</Text>

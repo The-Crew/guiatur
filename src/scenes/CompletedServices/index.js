@@ -17,8 +17,8 @@ class CompletedServices extends Component {
     headerRight: <Logout />,
     tabBarIcon: ({ focused, tintColor }) => (
       focused
-        ? <Icon name="playlist-add-check" size={30} color={colors.button} />
-        : <Icon name="playlist-add-check" size={30} color={colors.dark} />
+        ? <Icon name="playlist-add-check" size={30} color={colors.navFocused} />
+        : <Icon name="playlist-add-check" size={30} color={colors.navUnfocused} />
     ),
   };
 
@@ -32,7 +32,7 @@ class CompletedServices extends Component {
         return (
           <FlatList
             data={this.props.schedulesCompleted}
-            renderItem={({item}) => <ListItem item={item} navigation={this.props.navigation} />}
+            renderItem={({item, index}) => <ListItem item={item} index={index} navigation={this.props.navigation} />}
           />
         );
       }

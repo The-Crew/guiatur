@@ -1,5 +1,13 @@
-import { AppRegistry } from 'react-native';
+import React from 'react';
 import App from './src/App';
 console.disableYellowBox = true;
 
-AppRegistry.registerComponent('BelezaAgendada', () => App);
+class Teste extends React.Component {
+
+  render() {
+    return (
+      <App />
+    )
+  }
+}
+export default Teste;

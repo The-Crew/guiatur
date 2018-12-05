@@ -17,8 +17,8 @@ class PeddingServices extends Component {
     headerRight: <Logout />,
     tabBarIcon: ({ focused, tintColor }) => (
       focused
-        ? <Icon name="list" size={30} color={colors.button} />
-        : <Icon name="list" size={30} color={colors.dark} />
+        ? <Icon name="list" size={30} color={colors.navFocused} />
+        : <Icon name="list" size={30} color={colors.navUnfocused} />
     ),
   };
 

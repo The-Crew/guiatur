@@ -21,7 +21,14 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.guiatur.guiatur"
+    },
+    "android": {
+      "package": "com.guiatur.guiatur"
+    },
+    "androidStatusBar": {
+      "barStyle": "dark-content"
     }
   }
 }

@@ -3,7 +3,7 @@ import { Button, Image, View, Text, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { colors, textStyles } from '../../style';
+import { colors, textStyles, textInput } from '../../style';
 
 import {
   changeUsername,
@@ -21,17 +21,17 @@ class AuthLogin extends Component {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.backgroundAuth }}>
         <Image
-          style={{ width: 300, height: 115, marginVertical: 50}}
+          style={{ width: 300, height: 62, marginVertical: 50}}
           source={require('../../imgs/logoH.png')}
         />
         <TextInput
-          style={{ width: 300, ...textStyles.default }}
+          style={{ width: 300, ...textInput.default, ...textStyles.default }}
           placeholder="Insira o usuário"
           value={this.props.username}
           onChangeText={this.props.changeUsername}
         />
         <TextInput
-          style={{ width: 300, ...textStyles.default }}
+          style={{ width: 300, ...textInput.default, ...textStyles.default }}
           placeholder="Insira a senha"
           secureTextEntry
           value={this.props.password}
@@ -52,14 +52,6 @@ class AuthLogin extends Component {
               onPress={() => this.props.navigation.navigate('AuthSignUp') }
             />
           </View>
-        </View>
-        <View style={{ marginVertical: 30, width: 150 }}>
-          <Button
-            style={{ flex: 1 }}
-            title='Esqueci senha'
-            color={colors.button}
-            onPress={() => this.props.navigation.navigate('ResetPassword')}
-          />
         </View>
       </View>
     );

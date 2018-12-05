@@ -105,12 +105,6 @@ export const registerScheduling = () => (dispatch, getState) => {
     Alert.alert('Beleza Agendada informa:', 'Selecione um profissional.');
   } else if (schedulingDate === '') {
     Alert.alert('Beleza Agendada informa:', 'Selecione uma data.');
-  } else if (address === '') {
-    Alert.alert('Beleza Agendada informa:', 'Campo de endereço vazio.');
-  } else if (neighborhood === '') {
-    Alert.alert('Beleza Agendada informa:', 'Campo de bairro vazio.');
-  } else if (zipCode === '') {
-    Alert.alert('Beleza Agendada informa:', 'Campo de Cep vazio.');
   } else if (city === null) {
     Alert.alert('Beleza Agendada informa:', 'Selecione a cidade');
   } else {

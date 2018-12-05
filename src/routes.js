@@ -1,59 +1,74 @@
-import { StackNavigator, SwitchNavigator, TabNavigator } from 'react-navigation';
+import React from 'react';
+import { TouchableHighlight } from 'react-native';
+import {
+  createAppContainer,
+  createStackNavigator,
+  createSwitchNavigator,
+  createMaterialTopTabNavigator,
+} from 'react-navigation';
+import { Constants } from 'expo'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import { AuthLogin, AuthSignUp, ResetPassword } from './scenes/Auth';
+import { colors } from './style';
+
+import { AuthLogin, AuthSignUp, Logout } from './scenes/Auth';
 import Scheduling from './scenes/Scheduling';
 import PendingServices from './scenes/PendingServices';
 import CompletedServices from './scenes/CompletedServices';
 import Evaluation from './scenes/Evaluation';
 import SplashScreen from './scenes/SplashScreen';
 
-const SplashScreenStack = StackNavigator({
+const SplashScreenStack = createStackNavigator({
   SplashScreen: { screen: SplashScreen, tabBar: { visible: false } },
 }, {
   initialRouteName: 'SplashScreen',
   headerMode: 'none',
 });
 
-const AuthStack = StackNavigator({
+const AuthStack = createStackNavigator({
   AuthLogin: { screen: AuthLogin, tabBar: { visible: false } },
   AuthSignUp: { screen: AuthSignUp },
-  ResetPassword: { screen: ResetPassword },
 }, {
   initialRouteName: 'AuthLogin',
   headerMode: 'screen',
 });
 
-const AppTabs = TabNavigator({
+const AppTabs = createMaterialTopTabNavigator({
   Scheduling: { screen: Scheduling },
   PendingServices: { screen: PendingServices },
   CompletedServices: { screen: CompletedServices },
 }, {
   initialRouteName: 'Scheduling',
-  tabBarPosition: 'bottom',
+  tabBarPosition: 'top',
   tabBarOptions: {
-    activeTintColor: '#000',
+    activeTintColor: '#666',
     inactiveTintColor: '#777',
     showIcon: true,
     showLabel: false,
     style: {
-      backgroundColor: 'rgb(255, 219, 232)',
+      backgroundColor: colors.backgroundTavbar,
     },
   },
 });
 
-const AppStack = StackNavigator({
-  AppTabs: { screen: AppTabs },
+const AppStack = createStackNavigator({
+  AppTabs: {
+    screen: AppTabs,
+    navigationOptions: {
+      title: `GuiaTur`,
+      headerRight: <Logout />,
+    },
+  },
   Evaluation: { screen: Evaluation },
 }, {
   initialRouteName: 'AppTabs',
-  tabBarPosition: 'none',
+  headerMode: 'screen',
 });
 
-export default SwitchNavigator({
+export default createAppContainer(createSwitchNavigator({
   App: AppStack,
   Auth: AuthStack,
   SplashScreen: SplashScreenStack,
 }, {
   initialRouteName: 'SplashScreen',
-});
+}));
