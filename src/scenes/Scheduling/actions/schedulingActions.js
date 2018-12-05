@@ -16,6 +16,8 @@ import {
   MODIFY_SCHEDULING_CITY_LIST,
 } from './types';
 
+import { SCHEDULING_LIST } from '../../PendingServices/actions/types';
+
 export const getServices = () => (dispatch) => {
   axios.get('http://beleza-agendada-api.herokuapp.com/Servico/listarTodos/')
     .then((response) => {
@@ -145,6 +147,33 @@ export const registerScheduling = () => (dispatch, getState) => {
           Alert.alert('Beleza Agendada informa:', 'Agendamento efetuado com sucesso.');
           dispatch({ type: REGISTERING_SCHEDULING, payload: false });
         }
+
+        // Atualizar a lista de pendentes
+        const { user } = getState().Variables;
+        axios.post(
+          'http://beleza-agendada-api.herokuapp.com/Atendimento/listarNaoConcluidos',
+          { Id: user.Id },
+        )
+          .then((response) => {
+            if (response.data === null) {
+              dispatch({ type: SCHEDULING_LIST, payload: [] });
+            } else {
+              const schedulingList = response.data.map((scheduleing) => {
+                let arrayDate = scheduleing.DataAgendado.split('-');
+                arrayDate[2] = arrayDate[2].split(' ')[0];
+                const newDate = `${arrayDate[2]}/${arrayDate[1]}/${arrayDate[0]}`;
+                return {
+                  key: scheduleing.Id,
+                  description: scheduleing.Servico.Descricao,
+                  schedulingDate: newDate,
+                };
+              });
+              dispatch({ type: SCHEDULING_LIST, payload: schedulingList });
+            }
+          })
+          .catch(error => Alert.alert('Beleza Agendada informa:', 'Falha ao obter a lista dos agendamentos pendentes.'));
+        // Fim atualizar a lista de pendentes
+
       })
       .catch((error) => {
         Alert.alert('Beleza Agendada informa:', 'Não foi possível registrar o agendamento.');
