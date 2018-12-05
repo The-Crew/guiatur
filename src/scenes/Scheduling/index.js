@@ -88,7 +88,7 @@ class Scheduling extends Component {
                 return (
                   <Picker.Item
                     label={value.description}
-                    value={index}
+                    value={value.key}
                     key={index}
                   />
                 )

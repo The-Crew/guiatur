@@ -126,7 +126,7 @@ export const registerScheduling = () => (dispatch, getState) => {
     const data = {
       Cliente: { "Id": user.Id },
       Profissional: { "Id": professional },
-      Servico: { "Id": 1 },
+      Servico: { "Id": serviceIndex },
       DataAgendado: `${newDate[2]}-${newDate[1]}-${newDate[0]}`,
       DataRealizado: "",
       Endereco: address,
