@@ -51,7 +51,7 @@ export const changeZipCode = zipCode => ({ type: MODIFY_SCHEDULING_ZIPCODE, payl
 export const changeCity = city => ({ type: MODIFY_SCHEDULING_CITY, payload: city });
 
 export const getCities = () => (dispatch) => {
-  axios.post('http://beleza-agendada-api.herokuapp.com/Municipio/listarPorEstado/', { "Uf": "PE" })
+  /*axios.post('http://beleza-agendada-api.herokuapp.com/Municipio/listarPorEstado/', { "Uf": "PE" })
     .then((response) => {
       if (response.data) {
         dispatch({ type: MODIFY_SCHEDULING_CITY_LIST, payload: response.data });
@@ -61,7 +61,18 @@ export const getCities = () => (dispatch) => {
     })
     .catch((error) => {
       Alert.alert('Beleza Agendada informa:', 'Não foi possível carrgar as cidades.');
-    });
+    });*/
+  dispatch({
+    type: MODIFY_SCHEDULING_CITY_LIST,
+    payload: [
+      { "Id": "2604106", "Nome": "Caruaru" },
+      { "Id": "2606002", "Nome": "Garanhuns" },
+      { "Id": "2607208", "Nome": "Ipojuca" },
+      { "Id": "2607901", "Nome": "Jaboatão dos Guararapes" },
+      { "Id": "2609600", "Nome": "Olinda" },
+      { "Id": "2611606", "Nome": "Recife" },
+    ]
+  });
 }
 
 export const getProfessionals = () => (dispatch) => {
