@@ -10,7 +10,8 @@ export const listScheduleingCompleted = () => (dispatch, getState) => {
     { Id: user.Id },
   )
     .then((response) => {
-      const schedulingList = response.data.map((scheduleing) => {
+      const data = response.data || []
+      const schedulingList = data.map((scheduleing) => {
         let arrayDate = scheduleing.DataAgendado.split('-');
         arrayDate[2] = arrayDate[2].split(' ')[0];
         const newDate = `${arrayDate[2]}/${arrayDate[1]}/${arrayDate[0]}`;
@@ -23,7 +24,7 @@ export const listScheduleingCompleted = () => (dispatch, getState) => {
       });
       dispatch({ type: SCHEDULING_LIST_COMPLETED, payload: schedulingList });
     })
-    .catch(error => Alert.alert('Beleza Agendada informa:', 'Falha ao obter a lista dos agendamentos pendentes.'));
+    .catch(error => Alert.alert('Beleza Agendada informa:', 'Falha ao obter a lista dos agendamentos concluídos.'));
 };
 
 export default () => false;
