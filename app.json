@@ -28,7 +28,8 @@
       "package": "com.guiatur.guiatur"
     },
     "androidStatusBar": {
-      "barStyle": "dark-content"
+      "barStyle": "light-content",
+      "backgroundColor": "#3B5998"
     }
   }
 }
