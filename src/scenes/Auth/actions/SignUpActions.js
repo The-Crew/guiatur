@@ -16,7 +16,7 @@ import {
   CHANGE_SIGNUP_PASSWORD,
   CHANGE_SIGNUP_REPASSWORD,
   REGISTERING,
-  CHANGE_LOGIN_EMAIL,
+  CHANGE_LOGIN_USERNAME,
   CHANGE_SIGNUP_CITY_LIST,
 } from './types';
 
@@ -111,14 +111,14 @@ export const register = callbackSuccess => (dispatch, getState) => {
       Senha: signUpPassword,
     };
     const alertFail = () => {
-      dispatch({ type: REGISTERING, payload: signUpEmail });
+      dispatch({ type: REGISTERING, payload: true });
       Alert.alert('Beleza Agendada informa:', 'Que pena, houve uma falha ao efetuar o cadastro.\nTente novamente mais tarde.');
     };
 
     axios.post('https://beleza-agendada-api.herokuapp.com/Cliente/inserir/', data)
       .then((response) => {
         dispatch({ type: REGISTERING, payload: false });
-        dispatch({ type: CHANGE_LOGIN_EMAIL, payload: signUpEmail });
+        dispatch({ type: CHANGE_LOGIN_USERNAME, payload: signUpUsername });
         if (typeof callbackSuccess === 'function') callbackSuccess();
       })
       .catch((error) => {
